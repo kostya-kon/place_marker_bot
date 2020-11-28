@@ -7,7 +7,7 @@ from pymysql.cursors import DictCursor
 import os
 
 TOKEN = os.getenv("TOKEN", "")
-
+host = os.getenv("JAWSDB_URL")
 bot = telebot.TeleBot(TOKEN, parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
 
 # some vars
@@ -50,7 +50,7 @@ def start_message(message):
     bot.reply_to(message, "Добро пожаловать в бот, где ты можешь сохранять свои места.")
     try:
         with closing(pymysql.connect(
-            host='localhost',
+            host=host,
             user='root',
             password='Kostya_2020',
             db='place_bot_db',
