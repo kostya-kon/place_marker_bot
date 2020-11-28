@@ -94,7 +94,7 @@ def location_message(message):
     bot.send_location(message.chat.id, loc.latitude, loc.longitude)
     update_pos(message, ADD)
     with closing(pymysql.connect(
-        host='localhost',
+        host=host,
         user='root',
         password='Kostya_2020',
         db='place_bot_db',
@@ -113,7 +113,7 @@ def location_message(message):
 def list_message(message):
     bot.reply_to(message, "Ваш список мест: ")
     with closing(pymysql.connect(
-        host='localhost',
+        host=host,
         user='root',
         password='Kostya_2020',
         db='place_bot_db',
@@ -153,7 +153,7 @@ def reset_message(message):
 def reset_message_stage2(message):
     if message.text.lower() == "да":
         with closing(pymysql.connect(
-                host='localhost',
+                host=host,
                 user='root',
                 password='Kostya_2020',
                 db='place_bot_db',
