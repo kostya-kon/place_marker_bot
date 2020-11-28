@@ -4,9 +4,9 @@ import telebot
 from telebot import types
 import pymysql
 from pymysql.cursors import DictCursor
+import os
 
-
-TOKEN = "1416293641:AAGYJUWtv_zcMnwSD8SI158NpaciXbsXtUw"
+TOKEN = os.getenv("TOKEN", "")
 
 bot = telebot.TeleBot(TOKEN, parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
 
